@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
 class EditFishForm extends Component {
-  handleChange = even => {};
+  handleChange = event => {
+    const updatedFish = {
+      ...this.props.fish,
+      [event.currentTarget.name]: event.currentTarget.value
+    };
+    this.props.updateFish(this.props.index, updatedFish);
+  };
   render() {
     return (
       <div className="fish-edit">
